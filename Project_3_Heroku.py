@@ -99,8 +99,7 @@ data.loc[ data['review_score'] >= 6.5, 'review_score_level'] = 1 # Recommended
 
 #Word Cloud
 
-def print_word_cloud(group, df_text):
-    print(group)
+def print_word_cloud(df_text):
     #Combine all the reviews into one massive string
     review_text = np.array(df_text)
     review_text_combined = " ".join(review for review in review_text)
@@ -128,8 +127,8 @@ def print_word_cloud(group, df_text):
 data_0 = data.loc[data['review_score_level'] == 0]
 data_1 = data.loc[data['review_score_level'] == 1]
 
-c1 = print_word_cloud('Group Recommended', data_1['review_text'])
-c0 = print_word_cloud('Group Not Recommended', data_0['review_text'])
+c1 = print_word_cloud(data_1['review_text'])
+c0 = print_word_cloud(data_0['review_text'])
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
