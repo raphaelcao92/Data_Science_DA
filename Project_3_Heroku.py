@@ -133,10 +133,10 @@ df_new = pd.read_csv('df_final.zip', encoding = 'utf-8', index_col = 0)
 
 cr = classification_report(df_new.review_score_level, df_new.preds)
 
-pkl_filename = 'finalized_model'
+# pkl_filename = 'finalized_model'
 
-with open(pkl_filename, 'rb') as file:
-    lr_model = pickle.load(file)
+# with open(pkl_filename, 'rb') as file:
+#     lr_model = pickle.load(file)
 
 
 #-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -151,13 +151,12 @@ st.markdown("""<h4 style='text-align: left; color: ;'> Business Objective/Proble
             <p>- Chúng ta có thể lên đây để xem các đánh giá, nhận xét cũng như đặt mua thực phẩm.</p>
             <p>- Từ những đánh giá của khách hàng, vấn đề được đưa ra là làm sao để các nhà hàng/ quán ăn hiểu được khách hàng rõ hơn, biết họ đánh giá về mình như thế nào để cải thiện hơn trong dịch vụ/sản phẩm.</p></h4>""", unsafe_allow_html=True)
 
-menu = ["Build Project", "New Prediction"]
+menu = ["EDA & Cleaning","Natural Language Processing & Machine learning", "New Prediction"]
 
 choice = st.selectbox('Select one of the options', menu)
 
-if choice == "Build Project" :
-    st.title("Build Project")
-    st.subheader("EDA & Cleaning")
+if choice == "EDA & Cleaning" :
+    st.title("EDA & Cleaning")
     #EDA & Cleaning
     st.code('Dataframe') # Dataframe
     st.dataframe(data.head(10))
@@ -193,7 +192,8 @@ if choice == "Build Project" :
     st.markdown(""" <p>- Nhóm được yêu thích chủ yếu sẽ có ngợi khen ở 3 điểm chính: Không gian, nhân viên, phục vụ. Cùng với từ như: sạch sẽ, thân thiện, ngon.</p>
                     <p>- Nhóm các quán không được yêu thích cũng có 3 điểm chính tương tự nhưng các từ đi cùng lại rất khác: thất vọng, bình thường, hết, nhưng.</p>
                     <p>=>> Chúng ta hãy chờ sau khi có kết quả dự đoán để đưa ra các đề nghị cho các chủ doanh nghiệp.</p>""", unsafe_allow_html=True)
-    st.subheader("Natural Language Processing & Machine learning")
+if choice == "Natural Language Processing & Machine learning" :    
+    st.title("Natural Language Processing & Machine learning")
     st.markdown("<h4 style='text-align: left; color: #339966; '>Dữ liệu trước khi xử lý</h4>", unsafe_allow_html=True)
     st.dataframe(df.head(10))
     st.markdown("<h4 style='text-align: left; color: #339966; '>Model dự báo được sử dụng là Logistic Regression, với dữ liệu cung cấp như trên, model có độ chính xác như bên dưới:</h4>", unsafe_allow_html=True)
@@ -208,31 +208,31 @@ if choice == "Build Project" :
     st.markdown(""" <p>- Có thể thấy rằng kết quả dự báo có các key word gần sát so với khi kiểm tra Woud Cloud ban đầu =>>> Các chủ nhà hàng quán để ý đến 2 điểm chính: Nhân viên và phục vụ.</p>""", unsafe_allow_html=True)
 
 
-elif choice == "New Prediction":
-    st.title("New Prediction")
-    st.subheader('Select data')
-    flag = False
-    lines = None
-    type = st.radio("Upload data or Input data?", options = ('Upload', 'Input'))
-    if type == "Upload":
-        #Upload file
-        uploaded_file_1 = st.file_uploader("Choose a file", type = ['txt','csv'])
-        if uploaded_file_1 is not None:
-            lines = pd.read_csv(uploaded_file_1, header=None)
-            st.dataframe(lines)
-            # st.write(line.columns)
-            lines = lines[0]
-            flag = True
-        if type == "Input":
-            review = st.text_area(label="Input your content:")
-            if review!="":
-                lines = np.array([review])
-                flag = True
+# elif choice == "New Prediction":
+#     st.title("New Prediction")
+#     st.subheader('Select data')
+#     flag = False
+#     lines = None
+#     type = st.radio("Upload data or Input data?", options = ('Upload', 'Input'))
+#     if type == "Upload":
+#         #Upload file
+#         uploaded_file_1 = st.file_uploader("Choose a file", type = ['txt','csv'])
+#         if uploaded_file_1 is not None:
+#             lines = pd.read_csv(uploaded_file_1, header=None)
+#             st.dataframe(lines)
+#             # st.write(line.columns)
+#             lines = lines[0]
+#             flag = True
+#         if type == "Input":
+#             review = st.text_area(label="Input your content:")
+#             if review!="":
+#                 lines = np.array([review])
+#                 flag = True
             
-        if flag:
-            st.write("Content:")
-            if len(lines)>0:
-                st.code(lines)
-                x_new = lines
-                y_pred_new = lr_model.predict(x_new)
-                st.code("New predictions (0: Nhà hàng bạn không được yêu thích, 1: Nhà hàng bạn được yêu thích): " + str(y_pred_new))
+#         if flag:
+#             st.write("Content:")
+#             if len(lines)>0:
+#                 st.code(lines)
+#                 x_new = lines
+#                 y_pred_new = lr_model.predict(x_new)
+#                 st.code("New predictions (0: Nhà hàng bạn không được yêu thích, 1: Nhà hàng bạn được yêu thích): " + str(y_pred_new))
