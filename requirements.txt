@@ -2,3 +2,4 @@ streamlit-pandas-profiling
 WordCloud
 tk
 scikit-learn
+underthesea
