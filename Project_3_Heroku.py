@@ -40,7 +40,6 @@ from wordcloud import WordCloud
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
 from sklearn.linear_model import LogisticRegression
-import lightgbm
 from sklearn.metrics import confusion_matrix, accuracy_score, balanced_accuracy_score, roc_auc_score, f1_score, classification_report
 
 # %matplotlib inline
