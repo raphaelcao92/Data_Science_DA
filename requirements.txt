@@ -8,3 +8,4 @@ jieba
 demoji
 pyvi
 python-tk
+python3-tk
