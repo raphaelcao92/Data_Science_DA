@@ -1,11 +1,9 @@
 streamlit-pandas-profiling
 WordCloud
-tk
 scikit-learn
 underthesea
 gensim
 jieba
 demoji
 pyvi
-python-tk
-python3-tk
+
