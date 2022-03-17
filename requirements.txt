@@ -1,6 +1,6 @@
 streamlit-pandas-profiling
 WordCloud
-scikit-learn == 0.23.1
+scikit-learn
 underthesea
 gensim
 jieba
