@@ -103,11 +103,6 @@ def print_word_cloud(df_text):
     #Combine all the reviews into one massive string
     review_text = np.array(df_text)
     review_text_combined = " ".join(review for review in review_text)
-    # Import image to np.array
-    if group == 'group 0':
-        mask = np.array(Image.open('dislike.png'))
-    else:
-        mask = np.array(Image.open('like.png'))
     # Create stopword list:
     stopwords = set(STOPWORDS)
     #For now let's only remove the
