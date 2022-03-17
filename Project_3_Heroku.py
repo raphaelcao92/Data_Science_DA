@@ -112,7 +112,7 @@ def print_word_cloud(df_text):
     wordcloud = WordCloud(stopwords=stopwords, 
                             background_color="white", 
                             width= 2000, height = 1000, 
-                            max_words=50, mask=mask).generate(review_text_combined)
+                            max_words=50).generate(review_text_combined)
 
     # Display the generated image:
 
