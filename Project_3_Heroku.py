@@ -5,7 +5,7 @@ from os import path
 import json
 import pkgutil
 import re
-from tkinter import N
+# from tkinter import N
 import numpy as np
 import pandas as pd
 import sqlite3 as sql
