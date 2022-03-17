@@ -129,7 +129,7 @@ c0 = print_word_cloud(data_0['review_text'])
 
 df = data
 
-df_new = pd.read_csv('df_final.csv', encoding = 'utf-8', index_col = 0)
+df_new = pd.read_csv('df_final.zip', encoding = 'utf-8', index_col = 0)
 
 cr = classification_report(df_new.review_score_level, df_new.preds)
 
