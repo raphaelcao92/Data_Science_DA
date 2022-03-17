@@ -4,3 +4,4 @@ tk
 scikit-learn
 underthesea
 gensim
+jieba
