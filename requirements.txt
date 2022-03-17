@@ -6,3 +6,5 @@ underthesea
 gensim
 jieba
 demoji
+pyvi
+python-tk
