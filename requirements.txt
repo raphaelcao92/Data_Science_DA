@@ -3,3 +3,4 @@ WordCloud
 tk
 scikit-learn
 underthesea
+gensim
