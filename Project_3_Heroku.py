@@ -201,9 +201,9 @@ if choice == "Build Project" :
     st.markdown("<h4 style='text-align: left; color: #339966; '>Dữ liệu sau khi được xử lý và đưa ra dự báo</h4>", unsafe_allow_html=True)
     st.dataframe(df_new.head(10))
     st.markdown("<h4 style='text-align: left; color: #339966; '>Recommended Group</h4>", unsafe_allow_html=True)    
-    st.image('df_1_img.png')
+    st.image('df_1_img.PNG')
     st.markdown("<h4 style='text-align: left; color: #339966; '>Not Recommended Group</h4>", unsafe_allow_html=True)
-    st.image('df_0_img.png')
+    st.image('df_0_img.PNG')
     st.markdown("<h4 style='text-align: left; color: #339966; '>Nhận xét:</h4>", unsafe_allow_html=True)
     st.markdown(""" <p>- Có thể thấy rằng kết quả dự báo có các key word gần sát so với khi kiểm tra Woud Cloud ban đầu =>>> Các chủ nhà hàng quán để ý đến 2 điểm chính: Nhân viên và phục vụ.</p>""", unsafe_allow_html=True)
 
