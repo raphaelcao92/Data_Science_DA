@@ -37,13 +37,8 @@ from pyvi import ViPosTagger, ViTokenizer
 import string
 from datetime import datetime
 from wordcloud import WordCloud
-from lazypredict.Supervised import LazyClassifier
-from sklearn.datasets import load_breast_cancer
-from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 import pickle
-from sklearn.naive_bayes import BernoulliNB
-from sklearn.neighbors import NearestCentroid
 from sklearn.linear_model import LogisticRegression
 import lightgbm
 from sklearn.metrics import confusion_matrix, accuracy_score, balanced_accuracy_score, roc_auc_score, f1_score, classification_report
