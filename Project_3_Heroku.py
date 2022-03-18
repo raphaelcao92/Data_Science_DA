@@ -138,7 +138,7 @@ df_new = pd.read_csv('df_final.zip', encoding = 'utf-8', index_col = 0)
 
 #VietNamese Stop Words
 
-STOP_WORD_FILE = 'files/vietnamese-stopwords.txt'
+STOP_WORD_FILE = 'vietnamese-stopwords.txt'
 
 with open(STOP_WORD_FILE,'r',encoding='utf-8') as file:
   stop_words=file.read()
@@ -147,7 +147,7 @@ stop_words = stop_words.split('\n')
 
 #EMOJI
 
-EMOJI_CON_FILE = 'files/emojicon.txt'
+EMOJI_CON_FILE = 'emojicon.txt'
 
 with open(EMOJI_CON_FILE,'r',encoding='utf-8') as file:
   emoji=file.read()
@@ -162,7 +162,7 @@ for line in emoji:
     
 #TEENCODE
 
-TEEN_CODE_FILE = 'files/teencode.txt'
+TEEN_CODE_FILE = 'teencode.txt'
 
 with open(TEEN_CODE_FILE,'r',encoding='utf-8') as file:
   teencode=file.read()
@@ -177,7 +177,7 @@ for line in teencode:
 
 #WRONG WORD
 
-WRONG_WORDS_FILE = 'files/wrong-word.txt'
+WRONG_WORDS_FILE = 'wrong-word.txt'
 
 with open(WRONG_WORDS_FILE,'r',encoding='utf-8') as file:
   wrongwords=file.read()
@@ -186,7 +186,7 @@ wrongwords = wrongwords.split('\n')
 
 #ENG TO VN
 
-EV_FILE = 'files/english-vnmese.txt'
+EV_FILE = 'english-vnmese.txt'
 
 with open(EV_FILE,'r',encoding='utf-8') as file:
   e2v=file.read()
@@ -341,8 +341,6 @@ elif choice == "New Prediction":
             lines['text'] = lines['text'].apply(lambda x: process_text(str(x), emoji_dict, teencode_dict, e2v_dict, wrongwords))
             lines['text'] = lines['text'].apply(lambda x:word_tokenize(x,format = 'text'))
             text_data = np.array(lines['text'])
-            # count = CountVectorizer()
-            # count.fit(text_data)
             bag_of_words = count_model.transform(text_data)
             x_new = bag_of_words.toarray()
             y_pred_new = lr_model.predict(x_new)
